@@ -1,0 +1,62 @@
+.container-profile {
+  max-width: 90%;
+  margin: 11px auto 20px auto;
+  //border: 1px solid;
+  padding: 10px;
+
+  .text-header {
+    color: var(--header-background-color);
+  }
+
+  .block-profile {
+    display: flex;
+    justify-content: space-between;
+
+    .text {
+      font-size: 14px;
+      color: var(--header-background-color);
+    }
+
+    .name-user {
+      border-bottom: 1px solid;
+    }
+  }
+
+  form {
+    max-width: 600px;
+  }
+
+  .show-edit-password {
+    margin: 10px 0;
+    padding: 10px;
+    background: lightslategrey;
+
+    .text {
+      margin-bottom: 1px;
+      color: var(--header-logo-color);
+      font-size: 14px;
+      margin-top: 1px;
+      display: inline-block;
+      cursor: pointer;
+      padding: 5px;
+      transition: all 0.4s ease-out;
+
+      .icon-show {
+        text-align: center;
+        font-size: 15px;
+        width: 31px;
+        position: relative;
+        top: 3px;
+
+      }
+
+      &:hover {
+        transition: all 0.4s ease-in;
+        background: var(--header-logo-color);
+        color: var(--header-background-color);
+      }
+    }
+
+
+  }
+}

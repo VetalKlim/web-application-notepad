@@ -1,0 +1,34 @@
+.positions-block-login {
+  .noCategory{
+    margin: 20px;
+    text-align: center;
+    .noCategory-text{
+      color: var(--header-background-color);
+    }
+  }
+  .position-block-select {
+    max-width: 600px;
+    margin: 10px auto;
+
+    .title {
+      margin: 10px 5px 10px 5px;
+      font-size: 17px;
+      color: var(--header-background-color);
+    }
+
+
+  }
+
+  form {
+    max-width: 600px;
+    margin: 10px auto;
+
+    .input-position {
+      margin: 10px 5px 10px 5px;
+      max-width: 400px;
+
+      .form-input {
+      }
+    }
+  }
+}

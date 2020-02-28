@@ -1,0 +1,32 @@
+.block-admin {
+  margin: 150px auto;
+  .content-login {
+    text-align: center;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 3px var(--header-background-color);
+    max-width: 450px;
+    margin: 0 auto;
+
+    .title {
+      margin: 30px;
+      padding: 10px 10px 10px 10px;
+      border-bottom: 1px solid var(--header-background-color);
+      color: var(--header-logo-color);
+      background-color: var(--header-background-color);
+    }
+
+    .form-input,
+    .form-label {
+      color: var(--header-background-color);
+    }
+
+    .block-btn-login {
+      .btn {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+

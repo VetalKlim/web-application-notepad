@@ -1,0 +1,136 @@
+.header-container {
+  background-color: var(--header-background-color);
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--header-logo-color);
+
+  .header-logo {
+    display: flex;
+    margin: 0;
+
+    .header__menu {
+      padding: 14px 11px 10px 10px;
+      border-right: 1px solid var(--header-logo-color);
+      transition: all 0.3s ease-in;
+      border-radius: 2px;
+
+      .menu_line {
+        height: 1px;
+        width: 25px;
+        background-color: var(--header-logo-color);
+        margin: 6px;
+        display: block;
+        transition: all 0.3s ease-in;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: var(--header-logo-color);
+        transition: all 0.3s ease-out;
+
+        .menu_line {
+          background-color: var(--header-background-color);
+          transition: all 0.3s ease-out;
+          cursor: pointer;
+        }
+      }
+
+    }
+
+    .header-title {
+      color: var(--header-logo-color);
+      border-bottom: 1px solid var(--header-logo-color);
+      margin-left: 20px;
+      outline: 0 !important;
+      cursor: pointer;
+    }
+  }
+
+  .header-navigations {
+    margin: 7px;
+    display: flex;
+    justify-content: space-between;
+
+    .icon-user {
+      color: var(--header-logo-color);
+      position: relative;
+      top: 5px;
+      left: -10px;
+    }
+
+    .user-block {
+      padding: 5px 15px 5px 5px;
+      font-size: 13px;
+
+      .user-text {
+        color: var(--light-color);
+      }
+    }
+
+    .btn {
+      .icon-exit {
+        transform: rotate(90deg);
+        transition: all 0.3s ease-out;
+        position: relative;
+        top: 2px;
+        font-size: 13px;
+      }
+
+      &:hover {
+        .icon-exit {
+          transition: all 0.3s ease-in;
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+
+  }
+}
+
+@media all and (max-width: 700px) {
+  .header-container {
+    .header-logo {
+      .header__menu {
+        padding: 4px 5px 5px 5px;
+
+        .menu_line {
+          width: 18px;
+        }
+      }
+
+      .header-title {
+        border-bottom: none;
+        margin: 0 10px;
+        line-height: 35px;
+        font-size: 12px;
+      }
+    }
+    .header-navigations {
+      .icon-user {
+        top: 3px;
+        font-size: 14px;
+      }
+      .user-block {
+        padding: 1px 9px 4px 2px;
+        font-size: 12px;
+      }
+
+      .btn {
+        padding: 1px 7px;
+        margin: 0;
+        font-size: 11px;
+        .icon-exit {
+          font-size: 10px;
+        }
+
+      }
+    }
+  }
+
+}

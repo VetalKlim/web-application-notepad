@@ -1,0 +1,36 @@
+<app-alert></app-alert>
+
+<div class="block-edit-post" *ngIf="post; else loading">
+  <button class="btn" [routerLink]="['/user/post',post.postId]">Назад к посту</button>
+  <h3 class="title-edit-post">Редактирование поста</h3>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <p class="category-text">
+      <span>Категория поста</span> :
+      <b>{{post.nameCategory}}</b>
+    </p>
+    <p class="subcategory-text">
+      <span>Подкатегория поста </span> :
+      <b>{{post.subcategory}}</b>
+    </p>
+    <div class="input-position" [ngClass]="{invalid : form.get('topic').errors}">
+      <input class="form-input" id="topic" type="text" required formControlName="topic">
+      <label class="form-label" for="topic">Тема поста</label>
+            <div class="validation" *ngIf="form.get('topic').errors">
+              <small *ngIf="form.get('topic').errors.required">Поле не должно быть пустым</small>
+            </div>
+    </div>
+    <div>
+      <quill-editor formControlName="text"></quill-editor>
+    </div>
+    <button class="btn">Редактировать</button>
+    <button (click)="deletePost($event)" class="btn">Удалить пост</button>
+    <div class="error-block" *ngIf="errorMessage ">
+      <small class="alert-error-text">{{errorMessage }}</small>
+    </div>
+  </form>
+</div>
+
+<ng-template #loading>
+
+</ng-template>

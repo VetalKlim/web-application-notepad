@@ -1,0 +1,62 @@
+.content-post {
+  max-width: 90%;
+  margin: 11px auto 20px auto;
+  padding: 10px;
+
+  .block-icon {
+    margin: 0;
+    position: fixed;
+    top: 72px;
+    left: 44px;
+    cursor: pointer;
+    i{
+      color: var(--header-background-color);
+    }
+
+  }
+
+  .title, .category, .subcategory, .date {
+    margin: 10px;
+    font-size: 13px;
+    color: var(--header-background-color);
+  }
+
+  .date {
+    padding-bottom: 10px;
+    border-bottom: 1px solid;
+  }
+  .full {
+    z-index: 21;
+    left: 0%;
+    right: 0%;
+    position: fixed;
+    background: white;
+    top: 0;
+    height: 100vh;
+    p{
+      margin: 0;
+      background: var(--header-background-color);
+      cursor: pointer;
+      i{
+        color: var(--header-logo-color);
+        font-size: 11px;
+        padding: 2px;
+      }
+    }
+
+  }
+}
+
+.ql-editor{
+  height: 100vh !important;
+  overflow: scroll !important;
+}
+
+
+@media all and (max-width: 600px) {
+  .block-btn {
+    display: flex;
+    width: 100%;
+    flex-direction: column
+  }
+}

@@ -1,0 +1,24 @@
+<div class="content-post" *ngFor="let p of post">
+  <p class="block-icon" (click)="openWindow()" title="полный экран">
+    <i class="material-icons">settings_overscan</i>
+  </p>
+  <p class="title">Тема поста : <b>"{{p.topic}}"</b></p>
+  <p class="category">Категлрия поста : <b>{{p.nameCategory}}</b></p>
+  <p class="subcategory">Подкатегория : <b>{{p.subcategory}}</b></p>
+  <p class="date"> Дата создания поста
+    <b>{{p.date | date: 'dd.MM.yyyy  (HH:mm)':null:'ua'}}</b></p>
+  <div class="block-btn">
+    <button class="btn"
+            (click)="showBookmark(p.bookmark ?  p.bookmark = false : p.bookmark = true)">
+      {{p.bookmark ? 'Убрать с панели заклаок' : 'Добавить в панель закладок'}}
+    </button>
+    <button class="btn" [routerLink]="['/user/post',p.postId,'edit']">Редактировать пост</button>
+  </div>
+
+  <div [class.full]="fullS === true">
+    <p *ngIf="fullS" (click)="closeWindow()">
+      <i class="material-icons">arrow_back</i>
+    </p>
+    <quill-view [content]="p.contentPost"></quill-view>
+  </div>
+</div>

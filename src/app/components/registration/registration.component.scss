@@ -1,0 +1,104 @@
+.backToMenu {
+  margin: 20px;
+
+  .btn {
+    .icon-back {
+
+      font-size: 15px;
+      position: relative;
+      top: 3px;
+      left: -1px;
+    }
+  }
+}
+
+.positions-block-login {
+  margin: 5% auto;
+
+  .content-login {
+    //border: 1px solid silver;
+    text-align: center;
+    padding: 10px;
+    border-radius: 2px;
+    box-shadow: 0 0 3px var(--header-background-color);
+    max-width: 450px;
+    margin: 0 auto;
+
+    .icon-clearForm {
+      position: relative;
+      top: 5px;
+      left: 10px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .title {
+      margin: 30px;
+      padding: 10px 10px 10px 10px;
+      border-bottom: 1px solid var(--header-background-color);
+      color: var(--header-logo-color);
+      background-color: var(--header-background-color);
+    }
+
+    .form-input,
+    .form-label {
+      color: var(--header-background-color);
+    }
+
+    .block-btn-login {
+      .btn {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 700px) {
+  .backToMenu {
+    margin: 5px;
+
+    .btn {
+      margin: 0px;
+      font-size: 10px;
+
+      .icon-back {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .positions-block-login {
+    margin: 0 15px !important;
+    .content-login {
+      .icon-clearForm {
+      }
+      .title {
+        margin: 4px;
+        padding: 7px;
+      }
+      .input-position {
+        max-width: 90%;
+        margin: 20px 10px 20px 10px;
+      }
+
+      .form-input,
+      .form-label {
+
+      }
+
+      .block-btn-login {
+        .btn {
+          width: 54%;
+        }
+      }
+    }
+  }
+}
+@media all and (max-width: 500px) {
+  .block-btn-login {
+    .btn {
+      width: 94% !important;
+    }
+  }
+}

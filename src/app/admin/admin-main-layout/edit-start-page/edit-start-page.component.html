@@ -1,0 +1,88 @@
+<app-alert></app-alert>
+<div class="block-edit-start-page">
+  <table>
+    <tr>
+      <td colspan="3"><p class="text">Редактирование главной страници приложения</p></td>
+    </tr>
+    <tr *ngFor="let n of info">
+      <td class="title-operation">Название Приложения</td>
+      <td class="position-td">
+        <p class="text-now" *ngFor="let c of n.name">{{c.nameApplication}}</p>
+        <input [ngClass]="{warning: controller}"
+               [(ngModel)]="title"
+               class="input-text"
+               type="text"
+               placeholder="Изменить название приложения">
+      </td>
+      <td class="position-btn">
+        <button *ngIf="!name.length" (click)="setTitle()" class="btn"> Установить</button>
+        <button *ngIf="name.length > 0" (click)="updateTitle()" class="btn"> Обновить</button>
+      </td>
+    </tr>
+    <tr *ngFor="let d of info">
+      <td class="title-operation">Заголовак приложения</td>
+      <td class="position-td">
+        <p class="text-now" *ngFor="let d of d.description">{{d.description}}</p>
+        <input [ngClass]="{warning: controller}"
+               [(ngModel)]="description"
+               class="input-text"
+               type="text"
+               placeholder="Изменить название приложения">
+      </td>
+      <td class="position-btn">
+        <button *ngIf="!descriptionNow.length" (click)="setDescription()" class="btn"> Установить</button>
+        <button *ngIf="descriptionNow.length > 0" (click)="updateDescription()" class="btn"> Обновить</button>
+      </td>
+    </tr>
+    <tr *ngFor="let i of info">
+      <td class="title-operation">Фото приложения №1</td>
+      <td class="position-td">
+        <div *ngIf="currentUpload">
+          <div class="progress">
+            <div class="line-progress"
+                 [ngStyle]="{'width': currentUpload?.progress + '%', background: 'var(--header-background-color)'}">
+            </div>
+            <small>Загрузка: {{currentUpload?.name}} | {{currentUpload?.progress}}% </small>
+          </div>
+        </div>
+
+        <div class="photo">
+          <div *ngIf="imgServer.length">
+            <img (click)="deleteImg(c)" class="img" *ngFor="let c of i.img1" [src]="c.url" [alt]="c.name">
+          </div>
+        </div>
+        <form enctype="multipart/form-data">
+          <input (change)="detectFiles($event)" name="photo" multiple accept="image/*"
+                 type="file">
+        </form>
+      </td>
+      <td class="position-btn">
+        <button class="btn" *ngIf="imgServer;" (click)="addPhoto()">Добавить фото</button>
+        <!--        <button class="btn" *ngIf="imgServer.length;" (click)="deletePhoto()">Удалить фото</button>-->
+      </td>
+    </tr>
+  </table>
+  <table *ngFor="let n of info">
+    <tr *ngFor="let image of n.img1">
+      <td class="block-photo">
+        <div class="photo">
+          <div>
+            <img class="img" [src]="image.url" [alt]="image.name">
+          </div>
+        </div>
+      </td>
+      <td class="position-td">
+        <p class="text-now" *ngIf="image.text">
+          <quill-view [content]="image.text"></quill-view>
+        </p>
+        <quill-editor [(ngModel)]="descriptionImg"></quill-editor>
+      </td>
+      <td class="position-btn">
+        <button (click)="setDescriptionImg(image)" class="btn"> Установить</button>
+        <button (click)="updateDescriptionImg(image)" class="btn"> Обновить</button>
+      </td>
+    </tr>
+  </table>
+
+</div>
+

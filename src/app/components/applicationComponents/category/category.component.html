@@ -1,0 +1,13 @@
+<div class="container-createTopic">
+  <div class="btn-block-create">
+    <button class="btn btn-create" (click)="createTopic()">Создать категорию</button>
+    <button class="btn btn-create" (click)="editTopic()">Редактировать категорию</button>
+    <button class="btn btn-create" (click)="deleteTopic()">Удалить категорию</button>
+  </div>
+
+  <app-create-category *ngIf="create"></app-create-category>
+  <app-edit-category *ngIf="edit"></app-edit-category>
+  <app-delete-category *ngIf="delete"></app-delete-category>
+
+</div>
+

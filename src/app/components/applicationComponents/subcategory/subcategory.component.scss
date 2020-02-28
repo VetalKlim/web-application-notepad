@@ -1,0 +1,20 @@
+.position-block__subcategory {
+  margin: 20px;
+  .title {
+    margin: 10px;
+    padding-left: 10px;
+    color: var(--header-background-color);
+  }
+
+  ul {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    max-width: 200px;
+
+    .btn {
+
+    }
+  }
+}

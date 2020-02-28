@@ -1,0 +1,14 @@
+
+<div class="container-list-subcategory">
+  <div class="post-card" *ngFor="let post of posts">
+    <div class="post-header">
+      <h2 class="post-text">Категория поста - {{post.nameCategory}}</h2>
+      <small class="post-date">{{post.date | date:'dd.MM.yyyy'}}</small>
+    </div>
+    <div class="post-content">
+      <p class="post-subcategory"> Подкатегория - {{post.subcategory}}</p>
+      <p class="post-topic">Заголовок поста - {{post.topic}}</p>
+      <button class="btn" [routerLink]="['/user/post',post.postId]">Открыть пост</button>
+    </div>
+  </div>
+</div>

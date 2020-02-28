@@ -1,0 +1,13 @@
+<div class="header-admin">
+  <div class="text" >
+    <p *ngIf="!name.length else title; ">Не указано название сайта</p>
+    <ng-template #title>
+      <p *ngFor="let n of name">{{ n.nameApplication  }}</p>
+    </ng-template>
+
+  </div>
+  <div class="btn-block">
+    <button class="btn" (click)="exitAdmin()" [routerLink]="['/admin']"> Выйти с админки</button>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,97 @@
+
+.menu {
+  z-index: 7;
+  max-width: 300px;
+  background: var(--header-logo-color);
+  border-left: 1px var(--header-logo-color);
+  position: fixed;
+  top: 52px;
+  left: 58px;
+  right: 0;
+  bottom: 0;
+  transform: translateX(-500px);
+  transition: all 0.5s ease-in;
+}
+
+
+.active-menu {
+  z-index: 7;
+  max-width: 300px;
+  background: var(--header-background-color);
+  border-left: 1px solid var(--header-logo-color);
+  position: fixed;
+  top: 52px;
+  left: 58px;
+  right: 0;
+  bottom: 0;
+  transform: translateX(0px);
+  transition: all 0.5s ease-out;
+}
+
+.main {
+  max-width: 90%;
+  height: 89vh;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+  top: 96px;
+  margin: 0px auto;
+  transition: all 0.3s ease-out;
+  opacity: 1;
+}
+
+.main-active {
+  max-width: 90%;
+  position: relative;
+  top: 0px;
+  margin: 0 auto;
+  opacity: 0;
+  transition: all 0.3s ease-in;
+  pointer-events: auto;
+}
+
+@media all and (max-width: 1000px) {
+  .main {
+    width: 80%;
+    left: 30px;
+  }
+  .main-active{
+    width: 80%;
+    left: 30px;
+  }
+}
+@media all and (max-width: 700px) {
+  .menu {
+    top: 36px;
+  }
+  .active-menu {
+    top: 36px;
+    left: 41px
+  }
+  .main {
+    width: 100%;
+    left: 20px;
+    top: 75px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .active-menu {
+    max-width: 100% !important;
+  }
+}
+@media all and (max-width: 400px) {
+  .main {
+    width: 80%;
+  }
+}
+
+
+@media all and (max-width: 310px) {
+  .main {
+    //width: 85%;
+  }
+}
+
+
+

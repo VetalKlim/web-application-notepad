@@ -1,0 +1,18 @@
+<div class="position-block__subcategory">
+  <div class="no-content" *ngIf="subcategory.length === 0; else yesContent">
+    <p class="text__no-content">Вы не создали подкатегорий, создайте пожалуйста подкатегории в посте.
+      <a class="link_no-content" [routerLink]="['/user/addPost']"> Перейти на страницу создания категорий
+      </a>
+    </p>
+  </div>
+  <ng-template #yesContent>
+    <h4 class="title">Список подкатегорий</h4>
+    <ul>
+      <li class="btn"
+          *ngFor="let c of subcategory"
+          [routerLink]="['/user/listSubcategory', c.subcategoryId]"
+      > {{c.subcategory}}</li>
+    </ul>
+  </ng-template>
+
+</div>

@@ -1,0 +1,13 @@
+<div class="navigation-container">
+  <div class="noCategory-block" *ngIf="categories.length === 0">
+    <span class="noCategory-text">Категории пока не созданы</span>
+  </div>
+  <ul class="menu">
+    <li class="menu-item"
+        *ngFor="let cat of categories;"
+        [routerLink]="['/user/subcategory/', cat.categoryId]"
+    >
+      {{cat.nameCategory}}
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,22 @@
+<div class="header-container">
+  <div class="header-logo">
+    <div class="header__menu" (click)="openMenu()">
+      <span class="menu_line"></span>
+      <span class="menu_line"></span>
+      <span class="menu_line"></span>
+    </div>
+    <p class="header-title"
+       (click)="closeMenu()"
+       [routerLink]="['/user', 'home']"
+       title="На главную страницу">Notepad</p>
+  </div>
+  <div class="header-navigations">
+    <div class="user-block" >
+      <i class="material-icons icon-user">person</i>
+      <span class="user-text"> {{userName}}</span>
+    </div>
+    <button (click)="exitApplication()" class="btn" [routerLink]="['/']">Выход
+      <i class="material-icons icon-exit">arrow_upward</i>
+    </button>
+  </div>
+</div>

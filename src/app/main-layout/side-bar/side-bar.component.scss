@@ -1,0 +1,140 @@
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 57px;
+  background-color: var(--header-background-color);
+  position: fixed;
+  border-right: 1px solid var(--header-background-color);
+  top: 52px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+
+  .menu-top {
+    text-align: center;
+    max-height: 93%;
+    overflow-y: scroll;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    .menu-item {
+      background-image: url("https://365psd.com/images/istock/previews/9499/94998353-red-open-book-with-abstract-pages-and-bookmark-vector-logo.jpg");
+      text-align: center;
+      padding: 5px;
+      border: 1px solid var(--header-logo-color);
+      margin: 5px;
+      background-size: cover;
+      transition: all 0.3s ease-out;
+
+      .number {
+        position: relative;
+        font-size: 10px;
+        color: var(--header-background-color);
+        margin: 3px;
+        top: -8px;
+        font-weight: bold;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: translateX(-5px);
+        border: 1px solid #3592C4;
+        transition: all 0.3s ease-in;
+      }
+    }
+  }
+
+  .menu-bottom {
+    border-top: 1px solid white;
+    margin: 5px;
+    padding-top: 5px;
+
+    .menu-item {
+      text-align: center;
+      padding: 5px;
+      border: 1px solid var(--header-logo-color);
+      margin: 5px;
+      outline: 0 !important;
+
+      span {
+        color: var(--header-logo-color);
+        transition: all 0.3s ease-out;
+
+        .icon-sideBar {
+          position: relative;
+          top: 2px;
+          font-size: 20px;
+
+        }
+      }
+
+      &:hover {
+        background-color: var(--header-logo-color);
+        cursor: pointer;
+        transition: all 0.3s ease-in;
+
+        span {
+          color: var(--header-background-color);
+
+          .icon-sideBar {
+
+          }
+        }
+      }
+    }
+
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-width: 1px 1px 1px 2px;
+  //border-color: var(--success-color);
+  background-color: var(--header-logo-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border-width: 1px 1px 1px 2px;
+  border-color: var(--header-background-color);
+  background-color: var(--header-background-color);
+}
+
+::-webkit-scrollbar-track {
+  border-width: 0;
+}
+
+::-webkit-scrollbar-track:hover {
+  border-left: solid 1px var(--header-logo-color);
+  background-color: var(--header-logo-color);
+}
+
+
+@media all and (max-width: 700px) {
+  .sidebar-content {
+    top: 37px;
+    width: 40px;
+    .menu-top {
+      .menu-item {
+        margin: 0;
+        .number {
+        }
+      }
+    }
+    .menu-bottom {
+      .menu-item {
+        margin: 2px 0;
+        span {
+          .icon-sideBar {
+            font-size: 14px !important;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+
+.block-edit-post {
+  max-width: 90%;
+  margin: 11px auto 20px auto;
+  padding: 10px;
+
+  .title-edit-post {
+    color: var(--header-background-color);
+    text-align: center;
+  }
+  .category-text, .subcategory-text {
+    font-size: 14px;
+    color: var(--header-background-color);
+  }
+}

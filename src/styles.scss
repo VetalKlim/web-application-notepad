@@ -1,0 +1,236 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~normalize.css/normalize.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+
+
+body {
+  box-sizing: border-box;
+  //overflow: hidden;
+  ul {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+:root {
+  --header-logo-color: #FFFFFF;
+  --header-background-color: #58666F;
+  --primary-color: #dc3545;
+  --dark-color: #333333;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  input{
+    outline: 0 !important;
+  }
+}
+
+.btn {
+  border: none;
+  background-color: #FFFFFF;
+  color: var(--header-background-color);
+  padding: 5px 5px;
+  margin: 5px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid var(--header-background-color);
+  outline: 0 !important;
+
+  &:hover {
+    background-color: var(--header-background-color);
+    color: white;
+    border: 1px solid var(--header-logo-color);
+    transition: all 0.3s ease-in;
+  }
+}
+
+
+.input-position {
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 90%;
+  margin: 20px;
+
+  .form-input {
+    width: 90%;
+    height: 25px;
+    padding: 5px 15px;
+    border: none;
+    border-bottom: 1px solid var(--header-background-color);
+    outline: 0 !important;
+    color: var(--header-background-color);
+    transition: all 0.2s ease-out;
+  }
+
+  .form-label {
+    position: absolute;
+    pointer-events: none;
+    left: 6px;
+    top: 0;
+    color: var(--header-background-color);
+    line-height: 40px;
+    transition: .3s;
+    transition: all 0.2s ease-out;
+    font-size: 12px;
+  }
+
+  .form-input:focus ~ .form-label {
+    top: -26px;
+    left: 10px;
+    font-size: 13px;
+  }
+
+  .form-input:not(:focus):valid ~ .form-label {
+    top: -26px;
+    left: 5px;
+    font-size: 12px;
+    transition: all 0.2s ease-out;
+  }
+}
+
+.invalid {
+  .form-input {
+    border-bottom: 1px solid red !important;
+    transition: all 0.2s ease-in;
+  }
+
+  .form-label {
+    color: red !important;
+    transition: all 0.2s ease-in;
+  }
+}
+
+.ng-valid ~ .form-label {
+  color: var(--success-color) !important;
+  transition: all 0.5s ease-in;
+}
+
+.validation small {
+  color: var(--danger-color);
+  float: left;
+  padding: 10px 10px 2px 10px;
+  font-size: 12px;
+}
+
+.error-block {
+  background-color: #EB3941;
+  padding: 10px;
+  margin: 4px;
+
+  .alert-error-text {
+    color: #FFFFFF;
+    font-size: 12px;
+  }
+}
+
+// Стилизация блока когда нет контента.
+.no-content {
+  text-align: center;
+
+  .text__no-content {
+    font-size: 14px;
+    color: var(--header-background-color);
+
+    .link_no-content {
+      color: var(--header-background-color);
+      font-style: italic;
+      border-bottom: 1px solid;
+
+      &:hover {
+        color: slateblue;
+        border-bottom: 1px solid;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+// стилизация селекта
+.select-block {
+  margin: 10px;
+
+  .select {
+    color: var(--header-background-color);
+    min-width: 98%;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid;
+    outline: 0 !important;
+    padding-left: 10px;
+
+    .select-option {
+
+    }
+  }
+}
+
+
+
+
+// стилизация модального окна !
+.modal-body {
+  z-index: 10;
+  width: 100vw;
+  height: 100%;
+  background-color: rgb(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.modal-block {
+  z-index: 10;
+  max-width: 40%;
+  left: 10%;
+  right: 10%;
+  position: fixed;
+  background-color: #FFFFFF;
+  top: 36%;
+  margin: 0 auto;
+  border-radius: 3px;
+  box-shadow: 0 0 50px var(--header-background-color);
+  .modal-content{
+    margin: 40px 40px;
+
+  }
+}
+
+
+@media all and (max-width: 1100px) {
+  .modal-block {
+    max-width: 60%;
+  }
+}
+@media all and (max-width: 700px) {
+  .modal-block {
+    max-width: 80%;
+  }
+  .activeSuccess{
+    z-index: 10;
+    width: 100% !important;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  body{
+    overflow: visible !important;
+  }
+}

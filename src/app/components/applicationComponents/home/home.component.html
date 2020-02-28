@@ -1,0 +1,45 @@
+<div class="container-home">
+  <div class="no-content" *ngIf="!posts.length">
+    <p class="text__no-content"> Нет постов для просмотра.
+      <a class="link_no-content" [routerLink]="['/user/addPost']"> Перейти для создания постов </a>
+    </p>
+  </div>
+  <div *ngIf="posts.length">
+    <div class="search-btn" (click)="searchShow = !searchShow">
+      <small> Поиск </small>
+      <i class="material-icons">search</i>
+    </div>
+
+    <div class="search" *ngIf="searchShow">
+      <input type="text" [placeholder]="search" [(ngModel)]="search">
+      <div class="select-search">
+        <small>Выбор поиска </small>
+        <i class="material-icons icon-drop-dropdown">arrow_drop_down</i>
+        <div class="item" (click)="searchTopic()">
+          <span class="text">Тема поста</span>
+          <i *ngIf="searchField === 'topic'" class="material-icons icon-selected">done</i>
+        </div>
+        <div class="item" (click)="searchCategory()">
+          <span class="text">Категории</span>
+          <i *ngIf="searchField === 'nameCategory'" class="material-icons icon-selected">done</i>
+        </div>
+        <div class="item" (click)="searchSubcategory()">
+          <span class="text">Подкатегории </span>
+          <i *ngIf="searchField === 'subcategory'" class="material-icons icon-selected">done</i>
+        </div>
+      </div>
+
+    </div>
+    <div class="post-card" *ngFor="let post of posts | searchPosts:search :searchField;">
+      <div class="post-header">
+        <h2 class="post-text">Категория поста - {{post.nameCategory}}</h2>
+        <small class="post-date">{{post.date | date:'dd.MM.yyyy'}}</small>
+      </div>
+      <div class="post-content">
+        <p class="post-subcategory"> Подкатегория - {{post.subcategory}}</p>
+        <p class="post-topic">Тема поста - {{post.topic}}</p>
+        <button class="btn" [routerLink]="['/user/post',post.postId]">Открыть пост</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<app-alert></app-alert>
+<ngx-spinner name="spinner" *ngIf="loader"></ngx-spinner>
+<div class="positions-block-delete" *ngIf="!loader">
+  <div class="noCategory" *ngIf="categories.length === 0 ; else visualCategory">
+    <p class="noCategory-text"> Категории не созданы</p>
+  </div>
+  <ng-template #visualCategory>
+    <form class="content-delete" (ngSubmit)="submitDelete()">
+      <h4 class="title">Удаление категории</h4>
+      <div class="warning-block">
+        <span class="warning-text">Внимание!  Удаляя категорию вы удалите все посты связаные с ней </span>
+      </div>
+      <div class="input-position select-block">
+        <select class="select" name="selectedCategory" [(ngModel)]="selectedCategory">
+          <option class="select-option" selected *ngFor="let cat of categories;" [ngValue]="cat">
+            {{cat.nameCategory}}
+          </option>
+        </select>
+      </div>
+      <div class="block-btn-login">
+        <button class="btn" type="submit"> Удалить тему</button>
+      </div>
+    </form>
+  </ng-template>
+</div>
+<ng-template [ngIf]="success">
+  <div [ngClass]="{ 'activeSuccess': success }" *ngIf="success">
+    <p class="success-text">{{success}}</p>
+  </div>
+</ng-template>
+
+<ng-template [ngIf]="flagShowModal">
+  <div class="modal-body"></div>
+  <div class="modal-block">
+    <div class="modal-content">
+      <p class="text">Вы уверенны что хотите удалить категорию</p>
+      <div class="btn-block">
+        <button class="btn" (click)="yesDelete()">Удалить</button>
+        <button class="btn" (click)="noDelete()">Выйти</button>
+      </div>
+    </div>
+
+  </div>
+</ng-template>

@@ -1,0 +1,12 @@
+.header-admin {
+  display: flex;
+  justify-content: space-between;
+  background: #5C696F;
+  .btn-block {
+    .btn {
+      padding: 4px 3px;
+      margin: 5px;
+      font-size: 13px;
+    }
+  }
+}

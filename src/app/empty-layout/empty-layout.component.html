@@ -1,0 +1,18 @@
+<div class="header">
+  <div class="header-content">
+    <h1 class="title-application" *ngFor="let n of nameApplication">{{n.nameApplication}}</h1>
+    <div class="header-block-btn">
+      <button class="header-btn btn" (click)="comeIn()">Войти</button>
+      <button class="header-btn btn" (click)="registration()">Зарегистрирваться</button>
+    </div>
+  </div>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+
+
+
+
+

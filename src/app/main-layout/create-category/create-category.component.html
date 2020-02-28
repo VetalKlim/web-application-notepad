@@ -1,0 +1,24 @@
+
+<app-alert></app-alert>
+<ngx-spinner name="spinner" *ngIf="loader"></ngx-spinner>
+<div class="positions-block-login"  *ngIf="!loader">
+  <form class="content-login" [formGroup]="formCreate" (ngSubmit)="submitCreate()">
+    <h4 class="title">Созание Категории</h4>
+    <div class="input-position"
+         [ngClass]="{invalid: formCreate.get('nameCategory').touched && formCreate.get('nameCategory').invalid}">
+      <input class="form-input" id="nameCategory" type="text" required formControlName="nameCategory">
+      <label class="form-label" for="nameCategory">Новая тема</label>
+      <div class="validation"
+           *ngIf="formCreate.get('nameCategory').touched && formCreate.get('nameCategory').invalid">
+        <small
+          *ngIf="formCreate.get('nameCategory').errors.required">
+          Поле не должно быть пустым
+        </small>
+      </div>
+    </div>
+    <div class="block-btn-login">
+      <button class="btn" type="submit"> Создать тему</button>
+    </div>
+  </form>
+</div>
+

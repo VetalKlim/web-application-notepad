@@ -1,0 +1,140 @@
+<div class="container-addPost">
+  <div class="no-content" *ngIf="categories.length === 0; else yesContent">
+    <p class="text__no-content">Для того чтобы создавать посты, создайте пожалуйста категории.
+      <a class="link_no-content" [routerLink]="['/user/category']"> Перейти на страницу создания категорий
+      </a>
+    </p>
+  </div>
+  <ng-template #yesContent>
+    <app-alert></app-alert>
+    <div class="content-addPost">
+      <h2 class="header-addPost">Создать пост</h2>
+      <form [formGroup]="form" (ngSubmit)="submit()" >
+        <div class="input-position select-block">
+          <h4 class="title-addPost">Выбери категорию</h4>
+          <select class="select" name="selectedCategory"
+                  (click)="subcategorySelection()"
+                  [ngModelOptions]="{standalone: true}"
+                  [(ngModel)]="selectedCategory">
+            <option
+              class="select-option" selected
+              *ngFor="let cat of categories;"
+              [ngValue]="cat">
+              {{cat.nameCategory}}
+            </option>
+          </select>
+        </div>
+        <div class="create-subcategory">
+          <div class="input-position select-block" *ngIf="sortedSubcategory.length > 0 ">
+            <h4 class="title-addPost"> Выбери подкатегорию</h4>
+            <select class="select"
+                    (click)="closeButtons()"
+                    name="selectedSubcategory"
+                    [ngModelOptions]="{standalone: true}"
+                    [(ngModel)]="selectedSubcategory">
+              <option class="select-option" selected
+                      *ngFor="let cat of sortedSubcategory;"
+                      [ngValue]="cat"
+              > {{cat.subcategory}}
+              </option>
+            </select>
+          </div>
+          <div class="block-btn">
+            <button class="btn" (click)="showAddSubcategory($event)">Создать подкатегорию</button>
+            <button class="btn" *ngIf="sortedSubcategory.length > 0 " (click)="showEditSubcategory($event)">Редаетировать
+              подкатегорию
+            </button>
+            <button class="btn" *ngIf="sortedSubcategory.length > 0 " (click)="showDeleteSubcategory($event)">Удалить
+              подкатегорию
+            </button>
+          </div>
+          <div class="block-Category" *ngIf="addSubcategoryFlag">
+            <h5 class="title-addPost">Создать подкатегорию</h5>
+            <div class="input-position select-block" [ngClass]="{invalid: messageError }">
+              <input class="form-input"
+                     id="editPost"
+                     [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="newSubcategory"
+                     type="text" required>
+              <label class="form-label" for="editPost">Подкатегория</label>
+            </div>
+            <button (click)="addSubcategory($event)" class="btn">Создать категорию</button>
+          </div>
+
+
+          <div class="block-Category" *ngIf="editSubcategoryFlag">
+            <div class="input-position select-block">
+              <select class="select"
+                      name="subcategorySelectedEdit"
+                      [ngModelOptions]="{standalone: true}"
+                      [(ngModel)]="subcategorySelectedEdit">
+                <option class="select-option" selected
+                        *ngFor="let cat of sortedSubcategory;"
+                        [ngValue]="cat"
+                > {{cat.subcategory}}
+                </option>
+              </select>
+            </div>
+            <div class="input-position select-block" [ngClass]="{invalid: messageError }">
+              <input class="form-input"
+                     id="addPost"
+                     [ngModelOptions]="{standalone: true}"
+                     [(ngModel)]="editSubcategoryInput"
+                     [value]="subcategorySelectedEdit.subcategory"
+                     type="text" required>
+              <label class="form-label" for="addPost">Подкатегория</label>
+            </div>
+            <button (click)="editSubcategory($event)" class="btn"> Редактирование</button>
+          </div>
+
+
+          <div class="block-Category" *ngIf="deleteSubcategoryFlag">
+            <div class="input-position select-block">
+              <select class="select"
+                      name="subcategorySelectedDelete"
+                      [ngModelOptions]="{standalone: true}"
+                      [(ngModel)]="subcategorySelectedDelete">
+                <option class="select-option" selected
+                        *ngFor="let cat of sortedSubcategory;"
+                        [ngValue]="cat"
+                > {{cat.subcategory}}
+                </option>
+              </select>
+            </div>
+            <button (click)="deleteSubcategory($event)" class="btn"> Удалить</button>
+          </div>
+        </div>
+        <div class="block-tittle">
+          <h4 class="title-addPost">Тема Поста</h4>
+          <div class="input-position select-block" [ngClass]="{invalid: submitted &&  form.get('title').errors}">
+            <input class="form-input"
+                   id="topic"
+                   formControlName="title"
+                   type="text" required>
+            <label class="form-label" for="topic">Заголовок поста</label>
+            <div class="validation" *ngIf="submitted && form.get('title').errors">
+              <small *ngIf="form.get('title').errors.required">Поле не должно быть пустым</small>
+            </div>
+          </div>
+        </div>
+        <div class="block-post-text">
+          <h4 class="title-addPost">Создание поста</h4>
+          <quill-editor formControlName="post"></quill-editor>
+        </div>
+        <div class="position-checkbox">
+          <div class="pretty p-default p-thick p-pulse">
+            <input type="checkbox" (click)="checkbox()"/>
+            <div class="state p-warning-o">
+              <label class="text-checkbox">Добавить пост в закладки</label>
+            </div>
+          </div>
+        </div>
+        <button class="btn"  type="submit"> Создать пост</button>
+      </form>
+    </div>
+  </ng-template>
+</div>
+
+
+
+

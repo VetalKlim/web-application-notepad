@@ -1,0 +1,25 @@
+.container-createTopic {
+  max-width: 90%;
+  margin: 11px auto 20px auto;
+  //border: 1px solid;
+  padding: 10px;
+
+  .btn-block-create {
+    text-align: center;
+    .btn-create {
+      width: 60%;
+      margin: 2px;
+      padding: 5px !important;
+    }
+  }
+}
+
+@media all and (max-width: 900px) {
+  .container-createTopic {
+    .btn-block-create {
+      .btn-create {
+        width: 90%;
+      }
+    }
+  }
+}

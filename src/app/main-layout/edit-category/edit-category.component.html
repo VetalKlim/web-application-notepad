@@ -1,0 +1,41 @@
+<app-alert></app-alert>
+<ngx-spinner name="spinner" *ngIf="loader"></ngx-spinner>
+<div class="positions-block-login" *ngIf="!loader">
+  <div class="noCategory" *ngIf="categories.length === 0 ; else visualCategory">
+    <p class="noCategory-text"> Категории не созданы</p>
+  </div>
+  <ng-template #visualCategory>
+    <div class="position-block-select">
+      <h4 class="title">Редактировать категорию</h4>
+      <div class="input-position select-block">
+        <select class="select" [(ngModel)]="selectedCategory" (click)="selected()">
+          <option class="select-option" selected
+                  *ngFor="let c of categories" [ngValue]="c">{{c.nameCategory}}</option>
+        </select>
+      </div>
+    </div>
+
+    <form class="content-delete" [formGroup]="formEdit" (ngSubmit)="submit()">
+      <div class="input-position"
+           [ngClass]="{invalid: formEdit.get('editCategory').invalid}">
+        <input class="form-input" id="editCategory" type="text" required
+               [value]="selectInput.nameCategory"
+               formControlName="editCategory">
+        <label class="form-label" for="editCategory">Укажи категорию для редактирования</label>
+        <div class="validation"
+             *ngIf="formEdit.get('editCategory').invalid">
+          <small
+            *ngIf="formEdit.get('editCategory').errors.required">
+            Поле не должно быть пустым
+          </small>
+        </div>
+      </div>
+      <div class="block-btn-login">
+        <button class="btn" type="submit"> Редактировать категорию</button>
+      </div>
+    </form>
+  </ng-template>
+
+</div>
+
+

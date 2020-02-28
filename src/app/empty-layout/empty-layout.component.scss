@@ -1,0 +1,40 @@
+.header {
+  width: 100%;
+  background-color: var(--header-background-color);
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    .title-application {
+      margin: 5px 10px;
+      padding: 5px;
+      color: white;
+      font-size: 15px;
+      line-height: 2;
+    }
+    .header-block-btn {
+      padding: 10px 10px;
+      .header-btn{
+        border-radius: 1px;
+      }
+    }
+  }
+
+}
+
+@media all and (max-width: 600px) {
+  .header-content {
+    .title-application {
+      font-size: 16px;
+      line-height: 15px;
+      margin: 5px 5px;
+    }
+    .header-block-btn {
+      padding: 5px 5px !important;
+      .header-btn{
+        margin: 2px;
+        font-size: 8px;
+        border-radius: 1px;
+      }
+    }
+  }
+}

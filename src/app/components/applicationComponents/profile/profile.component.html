@@ -1,0 +1,25 @@
+<app-alert></app-alert>
+<ngx-spinner name="spinner" *ngIf="loader"></ngx-spinner>
+<div class="container-profile" *ngIf="!loader">
+  <h3 class="text-header">Profile</h3>
+  <div class="block-profile">
+    <p class="text">Изменить имя профиля</p>
+    <p class="text name-user">{{nameProfileUser}}</p>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="input-position" [ngClass]="{invalid: submitted && form.get('name').errors} ">
+      <input class="form-input" id="text" type="text" required formControlName="name">
+      <label class="form-label" for="text">Имя профиля</label>
+      <div class="validation" *ngIf="submitted && form.get('name').errors">
+        <small *ngIf="form.get('name').errors.required">Поле не должно быть пустым</small>
+      </div>
+    </div>
+    <button class="btn" type="submit">Изменить</button>
+  </form>
+  <div class="show-edit-password">
+    <p class="text" (click)="visibleBlockEditPassword = !visibleBlockEditPassword"> Изменить пароль
+      <i class="material-icons icon-show" >keyboard_arrow_down</i>
+    </p>
+  </div>
+  <app-edit-password (close)="visibleBlockEditPassword = $event" *ngIf="visibleBlockEditPassword"></app-edit-password>
+</div>
